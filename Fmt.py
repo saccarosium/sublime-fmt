@@ -107,8 +107,8 @@ def fmt(view, input, encoding, scope):
         except:
             pass
 
-    stdout = stdout.decode(encoding)
-    stderr = stderr.decode(encoding)
+    stdout = norm_newlines(stdout.decode(encoding))
+    stderr = norm_newlines(stderr.decode(encoding))
 
     if proc.returncode != 0:
         msg = str(sub.CalledProcessError(proc.returncode, cmd))
